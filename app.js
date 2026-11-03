@@ -1,6 +1,15 @@
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
+
+  /* masked headline: lines rise from behind their baseline once fonts are ready */
+  const go = () => root.classList.add('go');
+  if (document.fonts && document.fonts.ready) {
+    Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1200))]).then(() => requestAnimationFrame(() => setTimeout(go, 30)));
+  } else {
+    setTimeout(go, 50);
+  }
 
   /* work index: the active name drives the sticky frame */
   const projs = $$('.proj');
@@ -21,11 +30,11 @@
     const caseBtns = $$('.case-btn');
     const modeBtns = $$('.seg-btn');
     const cases = $$('.case', panel);
-    function replay() {
+    const replay = () => {
       panel.removeAttribute('data-sent');
       void panel.offsetWidth;
       panel.setAttribute('data-sent', '');
-    }
+    };
 
     caseBtns.forEach((b) => b.addEventListener('click', () => {
       caseBtns.forEach((x) => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', x === b); });
@@ -45,20 +54,19 @@
   /* entrances: heading, then text, then picture, staggered once */
   const targets = [
     ...$$('.work .h2'),
-    ...$$('.band-copy > *'),
     ...$$('.try-ctrl > *'),
     ...$$('.panel'),
-    ...$$('.facts > div'),
-    ...$$('.about-text > p'),
-    ...$$('.rec-word, .rec'),
-    ...$$('.giant, .log-sub'),
-    ...$$('.bars details'),
-    ...$$('.hero-copy > *, .hero-shot'),
+    ...$$('.tile'),
+    ...$$('.about .h2-big, .facts > div, .about-text > p'),
+    ...$$('.st'),
+    ...$$('.h2-log'),
+    ...$$('.logtab .grp'),
+    ...$$('.crow'),
   ];
   targets.forEach((el) => el.classList.add('reveal'));
   $$('.reveal').forEach((el) => {
     const sibs = [...el.parentElement.children].filter((c) => c.classList.contains('reveal'));
-    el.style.setProperty('--d', `${Math.min(sibs.indexOf(el), 6) * 70}ms`);
+    el.style.setProperty('--d', `${Math.min(sibs.indexOf(el), 5) * 70}ms`);
   });
 
   const show = (el) => {
@@ -69,21 +77,9 @@
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
     $$('.reveal').forEach((el) => io.observe(el));
   } else {
     $$('.reveal').forEach((el) => el.classList.add('in'));
-  }
-
-  /* rows of the contact list rise as they arrive */
-  $$('.crow').forEach((el) => el.classList.add('reveal'));
-  $$('.crow').forEach((el, i) => el.style.setProperty('--d', `${i * 60}ms`));
-  if ('IntersectionObserver' in window) {
-    const io2 = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { show(e.target); io2.unobserve(e.target); } });
-    }, { threshold: 0.2 });
-    $$('.crow').forEach((el) => io2.observe(el));
-  } else {
-    $$('.crow').forEach((el) => el.classList.add('in'));
   }
 })();
