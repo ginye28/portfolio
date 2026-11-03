@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wdth,wght@75..150,300..900&family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -44,183 +44,208 @@
 
 <main>
 
-<section class="work" id="work" aria-labelledby="work-h">
-  <div class="wrap work-grid">
-    <h2 id="work-h" class="h2">배포한 프로젝트</h2>
-    <ol class="proj-list">
-      <li>
-        <a class="proj is-active" href="https://choi-bujang-secret-vault-nine-chi.vercel.app" target="_blank" rel="noopener" data-shot="vault">
-          <img class="proj-img" src="images/vault.jpg" width="1280" height="800" alt="방어전 자료실 로그인 화면" loading="lazy">
-          <span class="proj-name">방어전 자료실</span>
-          <span class="proj-meta">인증·소유자 검사 · 점검 500/500</span>
-        </a>
-      </li>
-      <li>
-        <a class="proj" href="https://aleph-pds-auth.vercel.app" target="_blank" rel="noopener" data-shot="diary">
-          <img class="proj-img" src="images/diary.jpg" width="1280" height="800" alt="플랜두씨 다이어리 2의 로그인 화면" loading="lazy">
-          <span class="proj-name">플랜두씨 다이어리 2</span>
-          <span class="proj-meta">Supabase Auth·RLS · 검사 40/40</span>
-        </a>
-      </li>
-      <li>
-        <a class="proj" href="https://aleph-passkey.vercel.app" target="_blank" rel="noopener" data-shot="passkey">
-          <img class="proj-img" src="images/passkey.jpg" width="1280" height="800" alt="패스키 로그인을 단 소개 페이지의 첫 화면" loading="lazy">
-          <span class="proj-name">패스키 소개 페이지</span>
-          <span class="proj-meta">WebAuthn · 검사 43/43</span>
-        </a>
-      </li>
-      <li>
-        <a class="proj" href="https://aleph-intro.vercel.app" target="_blank" rel="noopener" data-shot="intro">
-          <img class="proj-img" src="images/intro.jpg" width="1280" height="800" alt="3분 안에 읽히는 자기소개 사이트의 첫 화면" loading="lazy">
-          <span class="proj-name">자기소개 사이트</span>
-          <span class="proj-meta">재현 가능한 문서 장치 · SHA-256 확인</span>
-        </a>
-      </li>
-      <li>
-        <a class="proj" href="https://aleph-dash.vercel.app" target="_blank" rel="noopener" data-shot="dash">
-          <img class="proj-img" src="images/dash.jpg" width="1280" height="800" alt="실시간 기온과 이전 기록의 차이를 보여 주는 정보판" loading="lazy">
-          <span class="proj-name">오늘의 진짜 정보판</span>
-          <span class="proj-meta">장애 5종 구분 · fixture 해시 검증</span>
-        </a>
-      </li>
-      <li>
-        <a class="proj" href="https://aleph-climb.vercel.app" target="_blank" rel="noopener" data-shot="climb">
-          <img class="proj-img" src="images/climb.jpg" width="1280" height="800" alt="클라이밍 완등 기록 웹앱의 기록 추가 화면" loading="lazy">
-          <span class="proj-name">완등 로그</span>
-          <span class="proj-meta">IndexedDB · Vercel Blob 허가 토큰</span>
-        </a>
-      </li>
-    </ol>
-    <div class="frame" aria-hidden="true">
-      <img class="shot is-on" data-id="vault" src="images/vault.jpg" width="1280" height="800" alt="">
-      <img class="shot" data-id="diary" src="images/diary.jpg" width="1280" height="800" alt="" loading="lazy">
-      <img class="shot" data-id="passkey" src="images/passkey.jpg" width="1280" height="800" alt="" loading="lazy">
-      <img class="shot" data-id="intro" src="images/intro.jpg" width="1280" height="800" alt="" loading="lazy">
-      <img class="shot" data-id="dash" src="images/dash.jpg" width="1280" height="800" alt="" loading="lazy">
-      <img class="shot" data-id="climb" src="images/climb.jpg" width="1280" height="800" alt="" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<section class="try" id="try" aria-labelledby="try-h">
-  <div class="wrap try-grid">
-    <div class="try-ctrl">
+<!-- Chapter: the wipe. Scroll (or drag the handle) to move the defence in. -->
+<section class="wipe" id="try" aria-labelledby="try-h">
+  <div class="wipe-static">
+    <div class="wrap">
       <h2 id="try-h" class="h2 h2-big">막힌 장면</h2>
-      <p class="try-sub">각 과제의 자동 검사 스크립트가 남긴 결과를 그대로 다시 보여 줍니다. 방어를 끄고 켜면서 같은 요청을 보내 보세요.</p>
-
-      <div class="cases" role="group" aria-label="시험 장면 고르기">
-        <button class="case-btn is-on" type="button" data-case="logout" aria-pressed="true">로그아웃한 뒤, 같은 토큰으로 조회</button>
-        <button class="case-btn" type="button" data-case="race" aria-pressed="false">패스키 삭제 중 연타</button>
-        <button class="case-btn" type="button" data-case="flood" aria-pressed="false">로그아웃 상태로 계정 만들기 반복</button>
-        <button class="case-btn" type="button" data-case="anon" aria-pressed="false">로그인 없이 자료 목록 열기</button>
-      </div>
-
-      <div class="try-actions">
-        <div class="seg" role="group" aria-label="방어 상태">
-          <button class="seg-btn is-on" type="button" data-mode="off" aria-pressed="true">방어 끔</button>
-          <button class="seg-btn" type="button" data-mode="on" aria-pressed="false">방어 켬</button>
-        </div>
-        <button class="btn" type="button" id="send">요청 보내기</button>
-      </div>
+      <p class="try-sub">각 과제의 자동 검사 스크립트가 남긴 결과를 그대로 다시 보여 줍니다. 같은 요청을 방어 전과 후에 보냈을 때의 응답이에요.</p>
     </div>
 
-    <div class="panel" id="panel" aria-live="polite">
-      <article class="case is-on" data-id="logout">
-        <h3 class="case-h">과제 7 · 플랜두씨 다이어리 2</h3>
+    <article class="case" data-short="로그아웃 토큰">
+      <h3 class="case-h">과제 7 · 플랜두씨 다이어리 2 — 로그아웃한 뒤, 같은 토큰으로 조회</h3>
 <pre class="req"><code>GET /rest/v1/&lt;자료 테이블&gt;
 Authorization: Bearer &lt;로그아웃 전에 받은 토큰&gt;</code></pre>
-        <div class="res res-off">
+      <div class="res res-off">
 <pre><code>→ 200 OK
 → 내 자료가 그대로 조회됨</code></pre>
-          <p class="verdict"><b>200</b> 뚫렸습니다</p>
-          <p class="why">JWT는 상태가 없어서, <code>signOut()</code>은 리프레시 토큰만 무효화합니다. 로그아웃한 뒤에도 토큰은 한동안 살아 있었습니다.</p>
-        </div>
-        <div class="res res-on">
+        <p class="verdict"><b>200</b> 뚫렸습니다</p>
+        <p class="why">JWT는 상태가 없어서, signOut()은 리프레시 토큰만 무효화합니다. 로그아웃한 뒤에도 토큰은 한동안 살아 있었습니다.</p>
+      </div>
+      <div class="res res-on">
 <pre><code>→ 200 OK
 → 0건</code></pre>
-          <p class="verdict"><b>0건</b> 막혔습니다</p>
-          <p class="why">모든 RLS 정책에 <code>session_is_active()</code>를 추가했습니다. 같은 요청이 200이면서 내 자료 0건으로 바뀌었습니다.</p>
-        </div>
-      </article>
+        <p class="verdict"><b>0건</b> 막혔습니다</p>
+        <p class="why">모든 RLS 정책에 session_is_active()를 추가했습니다. 같은 요청이 200이면서 내 자료 0건으로 바뀌었습니다.</p>
+      </div>
+    </article>
 
-      <article class="case" data-id="race">
-        <h3 class="case-h">과제 8 · 패스키 소개 페이지</h3>
+    <article class="case" data-short="패스키 삭제 연타">
+      <h3 class="case-h">과제 8 · 패스키 소개 페이지 — 패스키 삭제 중 연타</h3>
 <pre class="req"><code>패스키 삭제 요청을 재확인 왕복 중에 연타</code></pre>
-        <div class="res res-off">
+      <div class="res res-off">
 <pre><code>→ 401
 → 남은 패스키 0개 (계정 소멸)</code></pre>
-          <p class="verdict"><b>0개</b> 뚫렸습니다</p>
-          <p class="why">재확인 왕복 동안 화면이 살아 있어서 삭제 요청이 겹쳤고, 마지막 패스키까지 지워졌습니다.</p>
-        </div>
-        <div class="res res-on">
+        <p class="verdict"><b>0개</b> 뚫렸습니다</p>
+        <p class="why">재확인 왕복 동안 화면이 살아 있어서 삭제 요청이 겹쳤고, 마지막 패스키까지 지워졌습니다.</p>
+      </div>
+      <div class="res res-on">
 <pre><code>→ 200
 → 남은 패스키 1개 유지</code></pre>
-          <p class="verdict"><b>1개</b> 막혔습니다</p>
-          <p class="why">삭제하는 동안 목록을 잠그고, 연타를 재현하는 검사를 추가했습니다.</p>
-        </div>
-      </article>
+        <p class="verdict"><b>1개</b> 막혔습니다</p>
+        <p class="why">삭제하는 동안 목록을 잠그고, 연타를 재현하는 검사를 추가했습니다.</p>
+      </div>
+    </article>
 
-      <article class="case" data-id="flood">
-        <h3 class="case-h">과제 8 · 패스키 소개 페이지</h3>
+    <article class="case" data-short="계정 무한 생성">
+      <h3 class="case-h">과제 8 · 패스키 소개 페이지 — 로그아웃 상태로 계정 만들기 반복</h3>
 <pre class="req"><code>POST 계정 생성 challenge (로그아웃 상태) × 반복</code></pre>
-        <div class="res res-off">
+      <div class="res res-off">
 <pre><code>→ 요청마다 새 계정 생성
 → 제한 없음</code></pre>
-          <p class="verdict"><b>무한</b> 뚫렸습니다</p>
-          <p class="why">로그인하지 않았으면 무조건 새 계정을 만드는 구조였습니다.</p>
-        </div>
-        <div class="res res-on">
+        <p class="verdict"><b>무한</b> 뚫렸습니다</p>
+        <p class="why">로그인하지 않았으면 무조건 새 계정을 만드는 구조였습니다.</p>
+      </div>
+      <div class="res res-on">
 <pre><code>→ 11번째 요청부터
 → 429 Too Many Requests</code></pre>
-          <p class="verdict"><b>429</b> 막혔습니다</p>
-          <p class="why">IP 기준 속도 제한을 걸어, challenge를 발급하기 전에 먼저 막습니다.</p>
-        </div>
-      </article>
+        <p class="verdict"><b>429</b> 막혔습니다</p>
+        <p class="why">IP 기준 속도 제한을 걸어, challenge를 발급하기 전에 먼저 막습니다.</p>
+      </div>
+    </article>
 
-      <article class="case" data-id="anon">
-        <h3 class="case-h">방어전 · 공개 노출된 자료실</h3>
+    <article class="case" data-short="비로그인 조회">
+      <h3 class="case-h">방어전 · 공개 노출된 자료실 — 로그인 없이 자료 목록 열기</h3>
 <pre class="req"><code>GET /api/notes
 (로그인 없음)</code></pre>
-        <div class="res res-off">
+      <div class="res res-off">
 <pre><code>→ 200 OK
 → 모든 메모가 목록에 보임</code></pre>
-          <p class="verdict"><b>200</b> 뚫렸습니다</p>
-          <p class="why">시작 상태의 자료실은 비로그인으로도 전부 보였습니다.</p>
-        </div>
-        <div class="res res-on">
+        <p class="verdict"><b>200</b> 뚫렸습니다</p>
+        <p class="why">시작 상태의 자료실은 비로그인으로도 전부 보였습니다.</p>
+      </div>
+      <div class="res res-on">
 <pre><code>→ 401
 → 단계별 점검 500/500</code></pre>
-          <p class="verdict"><b>401</b> 막혔습니다</p>
-          <p class="why">로그인, 소유자 검사, 서버 단일 경로까지 5단계로 막았습니다. 공개 키로 직접 조회해도 401입니다.</p>
-        </div>
-      </article>
-
-      <p class="hint" id="hint">요청을 보내면 응답이 여기에 나옵니다.</p>
-    </div>
-  </div>
-</section>
-
-<section class="tools" aria-labelledby="tools-h">
-  <div class="wrap">
-    <div class="tiles">
-      <div class="tile tile-head">
-        <h2 id="tools-h" class="h2 h2-tile">써 본 도구</h2>
-        <p>직접 설정하고, 켜 보고, 시험해 본 보안 도구와 기술입니다.</p>
+        <p class="verdict"><b>401</b> 막혔습니다</p>
+        <p class="why">로그인, 소유자 검사, 서버 단일 경로까지 5단계로 막았습니다. 공개 키로 직접 조회해도 401입니다.</p>
       </div>
-      <p class="tile t-sage">Supabase Auth</p>
-      <p class="tile t-yellow">PostgreSQL RLS</p>
-      <p class="tile t-black">WebAuthn</p>
-      <p class="tile t-yellow">Spring Security</p>
-      <p class="tile t-grey">OAuth2 · JWT</p>
-      <p class="tile t-sage">Wazuh</p>
-      <p class="tile t-black">Graylog</p>
-      <p class="tile t-grey">n8n</p>
-      <p class="tile t-sage">OWASP ZAP</p>
-      <p class="tile t-yellow">Docker</p>
+    </article>
+  </div>
+</section>
+
+<!-- Chapter: the folders -->
+<section class="folders" id="work" aria-labelledby="work-h">
+  <div class="wrap folders-head">
+    <h2 id="work-h" class="h2 h2-big">배포한 프로젝트</h2>
+    <p>탭을 눌러 폴더를 열면 실제 배포 화면과 점검 결과가 나옵니다.</p>
+  </div>
+
+  <div class="stack">
+    <article class="folder f-orange open">
+      <span class="ftab" aria-hidden="true"></span>
+      <h3><button class="fbtn" type="button" aria-expanded="true" aria-controls="f1"><span class="fname">방어전 자료실</span><span class="fmeta">점검 500/500</span></button></h3>
+      <div class="fbody" id="f1"><div class="finner">
+        <figure class="win"><figcaption>choi-bujang-secret-vault-nine-chi.vercel.app</figcaption><img src="images/vault.jpg" width="1280" height="800" alt="방어전 자료실 로그인 화면과 점검 기록" loading="lazy"></figure>
+        <div class="finfo">
+          <p>비로그인으로 전부 보이던 메모 서비스를 로그인, 소유자 검사, 서버 단일 경로까지 5단계로 방어했습니다. 단계별 점검 500/500, 되찾은 자료함 4/4.</p>
+          <a class="btn btn-dark" href="https://choi-bujang-secret-vault-nine-chi.vercel.app" target="_blank" rel="noopener">배포 화면 열기 ↗</a>
+        </div>
+      </div></div>
+    </article>
+
+    <article class="folder f-yellow">
+      <span class="ftab" aria-hidden="true"></span>
+      <h3><button class="fbtn" type="button" aria-expanded="false" aria-controls="f2"><span class="fname">플랜두씨 다이어리 2</span><span class="fmeta">검사 40/40</span></button></h3>
+      <div class="fbody" id="f2"><div class="finner">
+        <figure class="win"><figcaption>aleph-pds-auth.vercel.app</figcaption><img src="images/diary.jpg" width="1280" height="800" alt="플랜두씨 다이어리 2의 로그인 화면" loading="lazy"></figure>
+        <div class="finfo">
+          <p>Supabase Auth와 RLS로 계정 간 자료를 격리하고, 로그아웃한 토큰의 재사용을 막았습니다. 로그인하지 않으면 자료 화면 자체가 열리지 않습니다.</p>
+          <a class="btn btn-dark" href="https://aleph-pds-auth.vercel.app" target="_blank" rel="noopener">배포 화면 열기 ↗</a>
+        </div>
+      </div></div>
+    </article>
+
+    <article class="folder f-sage">
+      <span class="ftab" aria-hidden="true"></span>
+      <h3><button class="fbtn" type="button" aria-expanded="false" aria-controls="f3"><span class="fname">패스키 소개 페이지</span><span class="fmeta">검사 43/43</span></button></h3>
+      <div class="fbody" id="f3"><div class="finner">
+        <figure class="win"><figcaption>aleph-passkey.vercel.app</figcaption><img src="images/passkey.jpg" width="1280" height="800" alt="패스키 로그인을 단 소개 페이지의 첫 화면" loading="lazy"></figure>
+        <div class="finfo">
+          <p>비밀번호 없는 WebAuthn 로그인을 단 소개 페이지입니다. 패스키 삭제 경합과 계정 무한 생성을 막고, 자동 검사 43개를 모두 통과시켰습니다.</p>
+          <a class="btn btn-dark" href="https://aleph-passkey.vercel.app" target="_blank" rel="noopener">배포 화면 열기 ↗</a>
+        </div>
+      </div></div>
+    </article>
+
+    <article class="folder f-paper">
+      <span class="ftab" aria-hidden="true"></span>
+      <h3><button class="fbtn" type="button" aria-expanded="false" aria-controls="f4"><span class="fname">자기소개 사이트</span><span class="fmeta">SHA-256 확인</span></button></h3>
+      <div class="fbody" id="f4"><div class="finner">
+        <figure class="win"><figcaption>aleph-intro.vercel.app</figcaption><img src="images/intro.jpg" width="1280" height="800" alt="3분 안에 읽히는 자기소개 사이트의 첫 화면" loading="lazy"></figure>
+        <div class="finfo">
+          <p>3분 안에 읽히는 공개 사이트와, 새 기록을 넣으면 다시 만들어 주는 재현 가능한 장치(refresh.mjs)입니다. 같은 입력이면 같은 결과가 나옴을 SHA-256으로 확인했습니다.</p>
+          <a class="btn btn-dark" href="https://aleph-intro.vercel.app" target="_blank" rel="noopener">배포 화면 열기 ↗</a>
+        </div>
+      </div></div>
+    </article>
+
+    <article class="folder f-orange">
+      <span class="ftab" aria-hidden="true"></span>
+      <h3><button class="fbtn" type="button" aria-expanded="false" aria-controls="f5"><span class="fname">오늘의 진짜 정보판</span><span class="fmeta">fixture 해시 검증</span></button></h3>
+      <div class="fbody" id="f5"><div class="finner">
+        <figure class="win"><figcaption>aleph-dash.vercel.app</figcaption><img src="images/dash.jpg" width="1280" height="800" alt="실시간 기온과 이전 기록의 차이를 보여 주는 정보판" loading="lazy"></figure>
+        <div class="finfo">
+          <p>실시간 기온을 보여 주되 장애 5종을 구분해 표시합니다. 장애 상황을 재현하는 fixture는 해시로 검증했습니다.</p>
+          <a class="btn btn-dark" href="https://aleph-dash.vercel.app" target="_blank" rel="noopener">배포 화면 열기 ↗</a>
+        </div>
+      </div></div>
+    </article>
+
+    <article class="folder f-yellow">
+      <span class="ftab" aria-hidden="true"></span>
+      <h3><button class="fbtn" type="button" aria-expanded="false" aria-controls="f6"><span class="fname">완등 로그</span><span class="fmeta">Vercel Blob 허가 토큰</span></button></h3>
+      <div class="fbody" id="f6"><div class="finner">
+        <figure class="win"><figcaption>aleph-climb.vercel.app</figcaption><img src="images/climb.jpg" width="1280" height="800" alt="클라이밍 완등 기록 웹앱의 기록 추가 화면" loading="lazy"></figure>
+        <div class="finfo">
+          <p>클라이밍 완등과 실패를 난이도별로 기록하고 월별 성장 곡선을 봅니다. 영상은 내 브라우저(IndexedDB)에 먼저 저장하고, 공유를 켠 경우에만 올립니다. 저장소 쓰기 토큰은 서버에만 둡니다.</p>
+          <a class="btn btn-dark" href="https://aleph-climb.vercel.app" target="_blank" rel="noopener">배포 화면 열기 ↗</a>
+        </div>
+      </div></div>
+    </article>
+  </div>
+</section>
+
+<!-- Chapter: the ledger -->
+<section class="ledger" id="log" aria-labelledby="log-h">
+  <div class="wrap">
+    <h2 id="log-h" class="h2 h2-big">트러블슈팅 기록</h2>
+    <p class="ledger-sub">문제를 찾고, 원인을 따라가고, 고친 뒤 결과를 숫자로 남겼습니다. 아직 끝나지 않은 항목은 끝나지 않았다고 적었습니다.</p>
+
+    <div class="lgroup">
+      <h3>플랜두씨 다이어리 2 · 인증과 격리</h3>
+      <div class="lrow"><p class="lp">로그아웃 후에도 같은 토큰으로 조회</p><p class="la">모든 RLS에 session_is_active() 추가</p><p class="stamp ok">200+내 자료 → 200+0건</p></div>
+      <div class="lrow"><p class="lp">격리 검사가 400을 거절로 오인</p><p class="la">실제 칼럼과 반영 행 수로 판정</p><p class="stamp ok">양방향 0행 입증</p></div>
+      <div class="lrow"><p class="lp">비밀값 탐지 룰 오탐</p><p class="la">실제 키 형태 정규식으로 정밀화</p><p class="stamp ok">오탐 0건</p></div>
+    </div>
+    <div class="lgroup">
+      <h3>패스키 소개 페이지</h3>
+      <div class="lrow"><p class="lp">패스키 하나 삭제 중 계정 소멸</p><p class="la">삭제 중 목록 잠금, 연타 재현 검사</p><p class="stamp ok">401·0개 → 200·1개</p></div>
+      <div class="lrow"><p class="lp">로그아웃 상태에서 계정 무한 생성</p><p class="la">속도 제한, 발급 전에 429</p><p class="stamp ok">11번째부터 429</p></div>
+      <div class="lrow"><p class="lp">배포 후 공개 주소에서만 검사 실패</p><p class="la">운영 DB에 스키마 적용</p><p class="stamp ok">41/42 → 42/42</p></div>
+    </div>
+    <div class="lgroup">
+      <h3>패스키 백업 상태 논문</h3>
+      <div class="lrow"><p class="lp">백업 상태 변화를 서버가 모름</p><p class="la">칼럼 3개와 적응형 인증 제안</p><p class="stamp ok">40회 측정 전부 무반응</p></div>
+    </div>
+    <div class="lgroup">
+      <h3>방어전 · 자료실 5단계</h3>
+      <div class="lrow"><p class="lp">첫 판정 50점</p><p class="la">originalApiUrl을 기록하도록 수정</p><p class="stamp ok">50점 → 100점</p></div>
+      <div class="lrow"><p class="lp">서버 전용 키에 테이블 권한 없음</p><p class="la">service_role에만 권한 부여</p><p class="stamp ok">100/100</p></div>
+    </div>
+    <div class="lgroup">
+      <h3>NEXUS WORK · 팀 프로젝트</h3>
+      <div class="lrow"><p class="lp">계정 스프레이 탐지 규칙이 작동 안 함</p><p class="la">규칙 12개 감사, 원인 전달</p><p class="stamp open">서버 조치 대기</p></div>
+      <div class="lrow"><p class="lp">외부 노출 점검에서 관리 구간 접근 가능</p><p class="la">스캔으로 증명, 규칙 정리 요청</p><p class="stamp open">재검증 예정</p></div>
+    </div>
+    <div class="lgroup">
+      <h3>StreamingPlatform · 개인 프로젝트</h3>
+      <div class="lrow"><p class="lp">재생목록 두 개, 스트림 키 노출</p><p class="la">송출 입구와 재생목록 생성을 분리</p><p class="stamp open">실제 OBS로 재검증</p></div>
     </div>
   </div>
 </section>
 
+<!-- Chapter: who -->
 <section class="about" id="about" aria-labelledby="about-h">
   <div class="wrap about-grid">
     <h2 id="about-h" class="h2 h2-big">소개</h2>
@@ -233,40 +258,26 @@ Authorization: Bearer &lt;로그아웃 전에 받은 토큰&gt;</code></pre>
       <p class="statement">로그인과 권한을 직접 짜 보고, 스스로 뚫어 보고, 막혔다는 증거가 나올 때까지 고칩니다.</p>
       <p>게임과 제작 도구, 정보판을 만들다 인증(Supabase Auth·RLS)과 패스키(WebAuthn)로 넘어왔고, 패스키 보안을 직접 측정한 논문까지 썼습니다. 이어진 방어전 실습에서는 공개 노출된 자료실을 5단계로 지켜 500/500점을 받았습니다. 4인 팀 프로젝트 NEXUS WORK에서는 조장으로서 자동화와 공격 시험을 맡았습니다.</p>
     </div>
-    <div class="strengths">
-      <div class="st st-orange"><h3>침착함</h3><p>보안 결함을 반복해서 겪어도 감정적으로 반응하지 않고, 원인을 끝까지 추적해 고칩니다.</p></div>
-      <div class="st st-yellow"><h3>성실함</h3><p>21일 내내 지각 없이 출석하고, 계획과 실제를 매일 비교하는 다이어리를 직접 만들어 썼습니다.</p></div>
-      <div class="st st-black"><h3>친화력</h3><p>“대화를 나누면 어느새 여러 사람이 웃고 있다”는 말을 동료들에게 들었습니다.</p></div>
+    <dl class="traits">
+      <div><dt>침착함</dt><dd>보안 결함을 반복해서 겪어도 감정적으로 반응하지 않고, 원인을 끝까지 추적해 고칩니다.</dd></div>
+      <div><dt>성실함</dt><dd>21일 내내 지각 없이 출석하고, 계획과 실제를 매일 비교하는 다이어리를 직접 만들어 썼습니다.</dd></div>
+      <div><dt>친화력</dt><dd>“대화를 나누면 어느새 여러 사람이 웃고 있다”는 말을 동료들에게 들었습니다.</dd></div>
+    </dl>
+    <div class="toolline">
+      <h3 class="sr">써 본 도구</h3>
+      <ul>
+        <li>Supabase Auth</li>
+        <li>PostgreSQL RLS</li>
+        <li>WebAuthn</li>
+        <li>Spring Security</li>
+        <li>OAuth2 · JWT</li>
+        <li>Wazuh</li>
+        <li>Graylog</li>
+        <li>n8n</li>
+        <li>OWASP ZAP</li>
+        <li>Docker</li>
+      </ul>
     </div>
-  </div>
-</section>
-
-<section class="log" id="log" aria-labelledby="log-h">
-  <div class="wrap">
-    <h2 id="log-h" class="h2 h2-log">트러블슈팅 기록</h2>
-    <table class="logtab">
-      <thead class="sr"><tr><th>문제</th><th>조치</th><th>결과</th></tr></thead>
-      <tbody>
-        <tr class="grp"><th colspan="3" scope="colgroup">플랜두씨 다이어리 2 · 인증과 격리</th></tr>
-        <tr><td>로그아웃 후에도 같은 토큰으로 조회</td><td>모든 RLS에 session_is_active() 추가</td><td>200+내 자료 → 200+0건</td></tr>
-        <tr><td>격리 검사가 400을 거절로 오인</td><td>실제 칼럼과 반영 행 수로 판정</td><td>양방향 0행 입증</td></tr>
-        <tr><td>비밀값 탐지 룰 오탐</td><td>실제 키 형태 정규식으로 정밀화</td><td>오탐 0건</td></tr>
-        <tr class="grp"><th colspan="3" scope="colgroup">패스키 소개 페이지</th></tr>
-        <tr><td>패스키 하나 삭제 중 계정 소멸</td><td>삭제 중 목록 잠금, 연타 재현 검사</td><td>401·0개 → 200·1개</td></tr>
-        <tr><td>로그아웃 상태에서 계정 무한 생성</td><td>속도 제한, 발급 전에 429</td><td>11번째부터 429</td></tr>
-        <tr><td>배포 후 공개 주소에서만 검사 실패</td><td>운영 DB에 스키마 적용</td><td>41/42 → 42/42</td></tr>
-        <tr class="grp"><th colspan="3" scope="colgroup">패스키 백업 상태 논문</th></tr>
-        <tr><td>백업 상태 변화를 서버가 모름</td><td>칼럼 3개와 적응형 인증 제안</td><td>40회 측정 전부 무반응</td></tr>
-        <tr class="grp"><th colspan="3" scope="colgroup">방어전 · 자료실 5단계</th></tr>
-        <tr><td>첫 판정 50점</td><td>originalApiUrl을 기록하도록 수정</td><td>50점 → 100점</td></tr>
-        <tr><td>서버 전용 키에 테이블 권한 없음</td><td>service_role에만 권한 부여</td><td>100/100</td></tr>
-        <tr class="grp"><th colspan="3" scope="colgroup">NEXUS WORK · 팀 프로젝트</th></tr>
-        <tr><td>계정 스프레이 탐지 규칙이 작동 안 함</td><td>규칙 12개 감사, 원인 전달</td><td>서버 조치 대기</td></tr>
-        <tr><td>외부 노출 점검에서 관리 구간 접근 가능</td><td>스캔으로 증명, 규칙 정리 요청</td><td>재검증 예정</td></tr>
-        <tr class="grp"><th colspan="3" scope="colgroup">StreamingPlatform · 개인 프로젝트</th></tr>
-        <tr><td>재생목록 두 개, 스트림 키 노출</td><td>송출 입구와 재생목록 생성을 분리</td><td>실제 OBS로 재검증</td></tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
@@ -289,6 +300,12 @@ Authorization: Bearer &lt;로그아웃 전에 받은 토큰&gt;</code></pre>
   </div>
 </footer>
 
-<script src="app.js?v=3" defer></script>
+<div class="hud" id="hud" aria-hidden="true">
+  <span>깊이 <b id="hud-depth">0%</b></span>
+  <span>지금 <b id="hud-where">—</b></span>
+  <span>상태 <b id="hud-status">—</b></span>
+</div>
+
+<script src="app.js?v=4" defer></script>
 </body>
 </html>
